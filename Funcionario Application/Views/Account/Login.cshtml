@@ -1,0 +1,165 @@
+﻿@model Funcionario_Application.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - Caatinga Supermercados</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Roboto&display=swap" rel="stylesheet">
+
+    <!-- Estilo customizado -->
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .info-side {
+            background: linear-gradient(to bottom right, #264653, #2A9D8F);
+            color: white;
+            padding: 3rem;
+        }
+
+            .info-side h1 {
+                font-family: 'Baloo 2', cursive;
+                font-size: 2.5rem;
+            }
+
+            .info-side ul {
+                padding-left: 1rem;
+                list-style: none;
+            }
+
+                .info-side ul li::before {
+                    content: "🌵 ";
+                }
+
+        .login-side {
+            background: linear-gradient(to right, #F4E2D8, #E9C46A, #F4A261);
+        }
+
+        .login-card {
+            background-color: #fff8f0;
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 450px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border: 3px solid #E76F51;
+        }
+
+            .login-card h2 {
+                font-family: 'Baloo 2', cursive;
+                color: #2A9D8F;
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+            }
+
+        .form-label {
+            color: #264653;
+            font-weight: 600;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            border: 2px solid #E9C46A;
+        }
+
+        .btn-login {
+            background-color: #E76F51;
+            color: white;
+            font-weight: bold;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+            .btn-login:hover {
+                background-color: #D1573C;
+            }
+
+        .logo-img {
+            width: 120px;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+        }
+
+        @@media (max-width: 576px) {
+            .login-card {
+                padding: 1.5rem;
+            }
+        }
+
+
+        .login-side {
+            justify-content: center !important;
+        }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid min-vh-100 d-flex flex-row">
+
+        <div class="col-md-6 d-flex flex-column justify-content-center align-items-start info-side">
+            <h1>Caatinga Supermercados</h1>
+            <p class="lead mt-3">A força da Caatinga no seu dia a dia.</p>
+            <ul class="mt-4">
+                <li>Ofertas regionais fresquinhas</li>
+                <li>Atendimento acolhedor e humano</li>
+                <li>Presente em mais de 12 cidades do sertão</li>
+                <li>Entregas no mesmo dia</li>
+            </ul>
+        </div>
+
+        <div class="col-md-6 d-flex justify-content-center align-items-center login-side">
+            <div class="login-card text-center w-100 mx-3">
+                <img src="~/images/Logo.png" alt="Logo Caatinga Supermercados" class="logo-img" />
+                <h2>Bem-vindo!</h2>
+
+                <form asp-action="Login" method="post" class="text-start">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label">Email</label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Password" class="form-label">Senha</label>
+                        <input asp-for="Password" type="password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-login btn-lg">Entrar</button>
+                    </div>
+                </form>
+
+                <div class="text-center mt-3">
+                    <a href="#" class="text-muted mx-2">Esqueci a senha</a> |
+                    <a href="#" class="text-muted mx-2">Precisa de ajuda?</a>
+                </div>
+
+                <footer class="text-center mt-4 text-muted small">
+                    © 2025 Caatinga Supermercados · <a href="#" class="text-muted">Instagram</a> · <a href="#" class="text-muted">WhatsApp</a>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
